@@ -1,0 +1,299 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "👑 Sotirals Hub 👀",
+   LoadingTitle = "Im a proud Christian",
+   LoadingSubtitle = "by Sotiral",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Sotirals HUB"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "QjMXjHyrvC", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Sotirals Hub | Key",
+      Subtitle = "Grab your key from discord",
+      Note = "Join Server https://pastebin.com/raw/MsXYFBLf",
+      FileName = "sotkey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/MsXYFBLf"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("🏠 Main", nil) -- Title, Image
+
+local Button = MainTab:CreateButton({
+   Name = " 🦘   Infinite jump",
+   Callback = function()
+        local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 👻   Fly",
+   Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 🧑‍🦲   Teleport",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/AbDM2er1"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 💪   Admin",
+   Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 👀   ESP",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 🧱   Noclip",
+   Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local Noclip = nil
+local Clip = nil
+
+function noclip()
+	Clip = false
+	local function Nocl()
+		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+					v.CanCollide = false
+				end
+			end
+		end
+		wait(0.21) -- basic optimization
+	end
+	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+
+function clip()
+	if Noclip then Noclip:Disconnect() end
+	Clip = true
+end
+
+noclip() -- to toggle noclip() and clip()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 🙈   Invinsible - Press X to On / Off",
+   Callback = function()
+        local key = Enum.KeyCode.X -- key to toggle invisibility
+
+--// dont edit script below
+local invis_on = false
+function onKeyPress(inputObject, chat)
+    if chat then return end
+    if inputObject.KeyCode == key then
+	    invis_on = not invis_on
+    	if invis_on then
+            local savedpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            wait()
+            game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-25.95, 84, 3537.55))
+            wait(.15)
+            local Seat = Instance.new('Seat', game.Workspace)
+            Seat.Anchored = false
+            Seat.CanCollide = false
+            Seat.Name = 'invischair'
+            Seat.Transparency = 1
+            Seat.Position = Vector3.new(-25.95, 84, 3537.55)
+            local Weld = Instance.new("Weld", Seat)
+            Weld.Part0 = Seat
+            Weld.Part1 = game.Players.LocalPlayer.Character:FindFirstChild("Torso") or game.Players.LocalPlayer.Character.UpperTorso
+            wait()
+            Seat.CFrame = savedpos
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Invis On";
+                Duration = 1;
+                Text = "";
+            })
+        else
+            workspace:FindFirstChild('invischair'):Remove()
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Invis Off";
+                Duration = 1;
+                Text = "";
+            })
+        end
+    end
+end
+
+game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = " 🔫   Godmode",
+   Callback = function()
+         --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://freenote.biz/raw/Fhpx5r5A8M"))()
+   end,
+})
+
+local SlidersTab = Window:CreateTab("🙀 Sliders AND 🔘 Toggles", nil) -- Title, Image
+
+local Slider = SlidersTab:CreateSlider({
+   Name = "💨 Speed",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "Walkspeed",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Slider = SlidersTab:CreateSlider({
+   Name = "👆 Jump",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "JP",
+   CurrentValue = 50,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+
+local Slider = SlidersTab:CreateSlider({
+   Name = "🚀 Gravity",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "Gravity ",
+   CurrentValue = 50,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.Gravity = (Value)
+   end,
+})
+
+local Toggle = SlidersTab:CreateToggle({
+   Name = "👁️ Fov 70",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+workspace.Camera.FieldOfView = 70
+   end,
+})
+
+local Toggle = SlidersTab:CreateToggle({
+   Name = "👁️ Fov 80",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+workspace.Camera.FieldOfView = 80
+   end,
+})
+
+local Toggle = SlidersTab:CreateToggle({
+   Name = "👁️ Fov 90",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+workspace.Camera.FieldOfView = 90
+   end,
+})
+
+local Toggle = SlidersTab:CreateToggle({
+   Name = "👁️ Fov 100",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+workspace.Camera.FieldOfView = 100
+   end,
+})
+
+local Toggle = SlidersTab:CreateToggle({
+   Name = "👁️ Fov 110",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+workspace.Camera.FieldOfView = 110
+   end,
+})
+
+local Toggle = SlidersTab:CreateToggle({
+   Name = "👁️ Fov 120",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+workspace.Camera.FieldOfView = 120
+   end,
+})
+
+local EmotesTab = Window:CreateTab("💃 Animation loader & Misc 👽", nil) -- Title, Image
+
+local Button = EmotesTab:CreateButton({
+   Name = "💀 Animation loader ",
+   Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet('https://raw.githubusercontent.com/RubyBoo4life/Scripts/main/animations.vis'))()
+   end,
+})
+
+local ColorPicker = EmotesTab:CreateColorPicker({
+    Name = "Secret",
+    Color = Color3.fromRGB(255,255,255),
+    Flag = "ColorPicker1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        -- The function that takes place every time the color picker is moved/changed
+        -- The variable (Value) is a Color3fromRGB value based on which color is selected
+    end
+})
+
+local Paragraph = EmotesTab:CreateParagraph({Title = "A sad story", Content = "Well, you have made it this far be proud. Make sure to sub to me on YT and JOIN THE FUCKING DISCORD YOU MOTHER FUCKER. Also i will NOT update this ABO MI NATION."})
